@@ -1,0 +1,172 @@
+# ============================================================
+# VoiceGuard
+# Repository safety rules
+#
+# Raw/protected audio, generated datasets, local environments,
+# credentials, temporary artifacts, and large model outputs
+# must not be committed to Git.
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Python
+# ------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.coverage
+htmlcov/
+
+
+# ------------------------------------------------------------
+# Virtual environments
+# ------------------------------------------------------------
+
+.venv/
+venv/
+env/
+env*/
+ml_env/
+ai_env/
+
+
+# ------------------------------------------------------------
+# Environment variables / credentials
+# ------------------------------------------------------------
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+
+
+# ------------------------------------------------------------
+# IDE / editor files
+# ------------------------------------------------------------
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+
+
+# ------------------------------------------------------------
+# Operating-system files
+# ------------------------------------------------------------
+
+.DS_Store
+Thumbs.db
+
+
+# ------------------------------------------------------------
+# Logs / temporary files
+# ------------------------------------------------------------
+
+*.log
+tmp/
+temp/
+*.tmp
+
+
+# ------------------------------------------------------------
+# AUDIO PROTECTION
+#
+# VoiceGuard contains protected and potentially sensitive
+# recordings. Audio files must NOT be committed by default.
+#
+# This includes:
+# - REAL dataset audio
+# - raw environment recordings
+# - robustness derivatives
+# - temporary listening/QC copies
+# - spoof recordings
+# - generated audio
+# ------------------------------------------------------------
+
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.aac
+*.wma
+
+
+# ------------------------------------------------------------
+# Dataset / raw-data protection
+# ------------------------------------------------------------
+
+dataset_v1/raw/
+dataset_v1/processed/
+
+robustness/raw/
+robustness/augmented/
+robustness/qc_listen/
+
+02_ROBUSTNESS_DATA/audio/
+02_ROBUSTNESS_DATA/raw/
+02_ROBUSTNESS_DATA/augmented/
+02_ROBUSTNESS_DATA/qc_listen/
+
+
+# ------------------------------------------------------------
+# Generic raw / generated data directories
+# ------------------------------------------------------------
+
+raw/
+qc_listen/
+outputs/
+artifacts/
+
+
+# ------------------------------------------------------------
+# Model checkpoints / large generated model files
+# ------------------------------------------------------------
+
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+checkpoints/
+runs/
+
+wandb/
+mlruns/
+
+
+# ------------------------------------------------------------
+# Local databases / caches
+# ------------------------------------------------------------
+
+*.db
+*.sqlite
+*.sqlite3
+.cache/
+
+
+# ------------------------------------------------------------
+# Jupyter
+# ------------------------------------------------------------
+
+.ipynb_checkpoints/
+
+
+# ------------------------------------------------------------
+# Build / packaging artifacts
+# ------------------------------------------------------------
+
+build/
+dist/
+*.egg-info/
